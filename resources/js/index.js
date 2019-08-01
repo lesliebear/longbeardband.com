@@ -1,60 +1,15 @@
 $(document).ready(() => {
-    if ($(window).height() > $('body').height()){
-      console.log('test');
-        $('body').height( $(window).height() );
-        // $('#body-content').height( $(window).height() );
-    }
+  // const body_space = $(window).height() - $('#header-nav').outerHeight() - $('#title-row').outerHeight();
+  const body_space = $(window).height() - $('#header-nav').outerHeight();
+  $('#body-content').height(body_space);
+  $('#cover-photo').css('width', 'auto').css('height', body_space * .8 + 'px');
 
-    $('.nav-item').mouseenter( () => {
-        $('.apple-whole').hide();
-        $('.apple-bite').show();
-    }).mouseleave( () => {
-        $('.apple-bite').hide();
-        $('.apple-whole').show();
-    });
+  console.log('body: ' + $('body').height());
+  console.log('window: ' + $(window).height());
+  if ($(window).height() > $('body').height()){
+    console.log('test');
+      $('body').height( $(window).height() );
+      // $('#body-content').height( $(window).height() );
+  }
 
-    twitch();
 });
-
-const twitch = () => {
-  setTimeout( () => {
-    $('.apple-whole').hide();
-    $('.apple-bite').show();
-  }, 200);
-  setTimeout( () => {
-    $('.apple-bite').hide();
-    $('.apple-whole').show();
-  }, 500);
-  setTimeout( () => {
-    $('.apple-whole').hide();
-    $('.apple-bite').show();
-  }, 700);
-  setTimeout( () => {
-    $('.apple-bite').hide();
-    $('.apple-whole').show();
-  }, 1000);
-  setTimeout( () => {
-    $('.apple-whole').hide();
-    $('.apple-bite').show();
-  }, 1200);
-  setTimeout( () => {
-    $('.apple-bite').hide();
-    $('.apple-whole').show();
-  }, 1500);
-  setTimeout( () => {
-    $('.apple-whole').hide();
-    $('.apple-bite').show();
-  }, 1700);
-  setTimeout( () => {
-    $('.apple-bite').hide();
-    $('.apple-whole').show();
-  }, 2000);
-  setTimeout( () => {
-    $('.apple-whole').hide();
-    $('.apple-bite').show();
-  }, 2200);
-  setTimeout( () => {
-    $('.apple-bite').hide();
-    $('.apple-whole').show();
-  }, 2500);
-}
