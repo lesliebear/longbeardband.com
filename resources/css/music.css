@@ -1,0 +1,32 @@
+body {
+  background-image: url('../images/grain.jpg');
+}
+
+#body-content {
+  display: block;
+  height: inherit;
+}
+
+#body-content img {
+  width: 100%;
+}
+
+.row {
+  margin: 50px 20px;
+  width: 100%;
+}
+
+#ssfap-spotify-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media screen and (max-width: 600px) {
+  .row {
+    margin: 0;
+  }
+
+  .col-sm-12 {
+    padding: 15px;
+  }
+}

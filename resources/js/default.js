@@ -1,5 +1,6 @@
 $(document).ready(() => {
-  
+
+  if ($(window).width() > 990){
     $('.nav-item').mouseenter( () => {
         $('.apple-whole').hide();
         $('.apple-bite').show();
@@ -8,7 +9,16 @@ $(document).ready(() => {
         $('.apple-whole').show();
     });
 
-    twitch();
+    // twitch();
+  }
+
+  if ($(window).width() >= 2000){
+    $('.fa-lg').each(function() {
+      $(this).removeClass('fa-lg').addClass('fa-3x');
+    });
+  }
+
+  $('body').css('min-height', $(window).height() + 'px');
 });
 
 const twitch = () => {

@@ -1,45 +1,47 @@
-//____POPULATE TOUR SECTION_______
-var xhr = new XMLHttpRequest();
-// xhr.open("GET", "https://rest.bandsintown.com/artists/japanesebreakfast/events?app_id=japanesebreakfastofficialsite", true);
-xhr.open("GET", "https://rest.bandsintown.com/artists/longbeard/events?app_id=longbeardofficialsite", true);
-xhr.onload = function (e) {
-  if (xhr.readyState === 4) {
-    if (xhr.status === 200) {
-    	var response = JSON.parse(xhr.responseText);
-      if (response.length > 0) {
-        for(i=0; i<response.length; i++){
-    			var event = create_event_row(response[i]);
-    			$('#tour-container').append(event);
-    		}
-      } else {
-        $('#tour-container').append(noShows());
-      }
-
-      if ($(window).height() > $('body').height()){
-        const body_space = $(window).height() - $('#header-nav').outerHeight() - $('#footer-nav').outerHeight();
-        $('#body-content').height(body_space);
-        $('body').height( $(window).height() );
-      }
-    } else {
-      console.error(xhr.statusText);
-    }
-  }
-};
-xhr.onerror = function (e) {
-  console.error(xhr.statusText);
-};
-xhr.send(null);
-$('#tour-container').find('.row').last().find('.evt').css('border-bottom', 'none');
-
 $(document).ready(function() {
-	setTimeout(function(){
-		load_tour();
-	}, 300);
-});
 
-function load_tour(){
-	$('#body-content').removeClass('text-center');
-}
+  //____POPULATE TOUR SECTION_______
+  var xhr = new XMLHttpRequest();
+  // xhr.open("GET", "https://rest.bandsintown.com/artists/japanesebreakfast/events?app_id=japanesebreakfastofficialsite", true);
+  xhr.open("GET", "https://rest.bandsintown.com/artists/longbeard/events?app_id=1", true);
+  xhr.onload = function (e) {
+    if (xhr.readyState === 4) {
+      if (xhr.status === 200) {
+      	var response = JSON.parse(xhr.responseText);
+        if (response.length > 0) {
+          for(i=0; i<response.length; i++){
+      			var event = create_event_row(response[i]);
+      			$('#tour-container').append(event);
+      		}
+        } else {
+          $('#tour-container').append(noShows());
+        }
+
+        $(window).on('resize', function() {
+          const body_space = $(window).height() - $('#header-nav').outerHeight() - $('#footer-nav').outerHeight();
+          if ($(window).height() > $('#header-nav').outerHeight() + $('#body-content').height() + $('#footer-nav').outerHeight()) {
+            $('#body-content').height(body_space);
+            $('body').height( $(window).height() );
+          }else{
+            $('body').height('auto');
+            $('#body-content').height('auto');
+          }
+          // $('#tour-container').height($('#body-content').height());
+        });
+
+        $(window).trigger('resize');
+      } else {
+        console.error(xhr.statusText);
+      }
+    }
+  };
+  xhr.onerror = function (e) {
+    console.error(xhr.statusText);
+  };
+  xhr.send(null);
+  $('#tour-container').find('.row').last().find('.evt').css('border-bottom', 'none');
+
+});
 
 function create_event_row( event ){
 	var parsed_datetime = event.datetime.split('-');

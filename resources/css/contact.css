@@ -1,0 +1,66 @@
+body {
+  background-image: url('../images/grain.jpg');
+}
+
+#body-content p {
+  line-height: 1.5rem;
+}
+
+#photo img{
+  width: 100%;
+}
+
+#photo-cred {
+  padding-top: 3px;
+  font-size: 10px;
+  margin: 0;
+}
+
+.big {
+  font-size: 12px;
+}
+
+.small {
+  font-size: 10px;
+}
+
+.container {
+  margin: auto;
+  max-width: 3000px;
+}
+
+@media screen and (max-width: 600px) {
+
+}
+
+@media screen and (min-width: 1300px) {
+  #photo-cred {
+    font-size: 12px;
+  }
+
+  .big {
+    font-size: 14px;
+  }
+
+  .small {
+    font-size: 12px;
+  }
+}
+
+@media screen and (min-width: 2000px) {
+  #body-content p {
+    line-height: 3rem;
+  }
+
+  #photo-cred {
+    font-size: 1.5rem;
+  }
+
+  .big {
+    font-size: 2rem;
+  }
+
+  .small {
+    font-size: 1.5rem;
+  }
+}
