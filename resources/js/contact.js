@@ -1,7 +1,9 @@
 $(document).ready(() => {
-  const body_space = $(window).height() - $('#header-nav').outerHeight() - $('#footer-nav').outerHeight();
-  if ($('#body-content').height() < body_space){
-    $('#body-content').height(body_space);
+  if ($(window).width() > 767){
+    const body_space = $(window).height() - $('#header-nav').outerHeight() - $('#footer-nav').outerHeight();
+    if ($('#body-content').height() < body_space ){
+      $('#body-content').height(body_space);
+    }    
   }
 
   if ($(window).width() < 992){
@@ -11,5 +13,5 @@ $(document).ready(() => {
   }
 
   $('#body-content').width($('#header-nav').width());
-  console.log($('#header-nav').width());
+  $('#photo img').attr('src', '../resources/images/long-beard-ferry.jpg');
 });
