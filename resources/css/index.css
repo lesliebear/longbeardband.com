@@ -19,7 +19,7 @@ html {
 body {
   width: 100%;
   font-family: 'Work Sans', serif;
-  background-image: url('../images/means-to-me.jpg');
+  background-image: url('../images/means-to-me.jpg?ver=1.3');
   background-size: cover;
   background-position: center;
   color: black;

@@ -4,6 +4,6 @@ $(document).ready(function() {
     $('#body-content').height(body_space);
   }
 
-  $('#ssfap-spotify-wrapper iframe').height($('.alb img').height());
-  $('#ssfap-spotify-wrapper iframe').width($('.alb img').width());
+  $('.spotify-wrapper iframe').height($('.alb img').height());
+  $('.spotify-wrapper iframe').width($('.alb img').width());
 });

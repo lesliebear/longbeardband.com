@@ -16,7 +16,7 @@ body {
   width: 100%;
 }
 
-#ssfap-spotify-wrapper {
+.spotify-wrapper {
   display: flex;
   justify-content: flex-end;
 }
