@@ -78,6 +78,7 @@ body {
 }
 
 .custom-btn.empty {
+  display: none;
 	color: #eaecef;
 	border-color: #eaecef;
 }
