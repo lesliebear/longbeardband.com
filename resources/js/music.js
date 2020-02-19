@@ -6,4 +6,9 @@ $(document).ready(function() {
 
   $('.spotify-wrapper iframe').height($('.alb img').height());
   $('.spotify-wrapper iframe').width($('.alb img').width());
+
+  $(window).on('resize', function(){
+    $('.spotify-wrapper iframe').height($('.alb img').height());
+    $('.spotify-wrapper iframe').width($('.alb img').width());
+  });
 });
