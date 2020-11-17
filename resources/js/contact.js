@@ -3,7 +3,7 @@ $(document).ready(() => {
     const body_space = $(window).height() - $('#header-nav').outerHeight() - $('#footer-nav').outerHeight();
     if ($('#body-content').height() < body_space ){
       $('#body-content').height(body_space);
-    }    
+    }
   }
 
   if ($(window).width() < 992){

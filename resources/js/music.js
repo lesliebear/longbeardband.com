@@ -1,14 +1,14 @@
 $(document).ready(function() {
-  const body_space = $(window).height() - $('#header-nav').outerHeight() - $('#footer-nav').outerHeight();
-  if ($('#body-content').height() < body_space){
-    $('#body-content').height(body_space);
-  }
+	setTimeout(function(){
+		setFrames();
 
-  $('.spotify-wrapper iframe').height($('.alb img').height());
-  $('.spotify-wrapper iframe').width($('.alb img').width());
-
-  $(window).on('resize', function(){
-    $('.spotify-wrapper iframe').height($('.alb img').height());
-    $('.spotify-wrapper iframe').width($('.alb img').width());
-  });
+		$(window).resize(function(){
+			setFrames();
+		});
+	}, 300);
 });
+
+function setFrames(){
+	var dim = $('.album').width();
+	$('.spotify-wrapper iframe').width(dim).height(dim);
+}
