@@ -13,5 +13,5 @@ $(document).ready(() => {
   }
 
   $('#body-content').width($('#header-nav').width());
-  $('#photo img').attr('src', '../resources/images/long-beard-ferry.jpg');
+  $('#photo img').attr('src', '../resources/images/long-beard-ferry.jpg?1');
 });

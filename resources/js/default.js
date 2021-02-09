@@ -1,15 +1,24 @@
 $(document).ready(() => {
 
+  setResponsive();
+
+  $(window).on('resize', () => {
+    console.log('resize');
+    setResponsive();
+  });
+});
+
+const setResponsive = () => {
   if ($(window).width() > 990){
     $('.nav-item').mouseenter( () => {
-        $('.apple-whole').hide();
-        $('.apple-bite').show();
+        toggleApple();
     }).mouseleave( () => {
-        $('.apple-bite').hide();
-        $('.apple-whole').show();
+        toggleApple();
     });
-
-    // twitch();
+  } else {
+    $('.navbar-toggler').click( () => {
+      toggleApple();
+    });
   }
 
   if ($(window).width() >= 2000){
@@ -19,47 +28,14 @@ $(document).ready(() => {
   }
 
   $('body').css('min-height', $(window).height() + 'px');
-});
+}
 
-const twitch = () => {
-  setTimeout( () => {
+const toggleApple = () => {
+  if ( $('.apple-whole').is(":visible") ){
     $('.apple-whole').hide();
     $('.apple-bite').show();
-  }, 200);
-  setTimeout( () => {
+  } else {
     $('.apple-bite').hide();
     $('.apple-whole').show();
-  }, 500);
-  setTimeout( () => {
-    $('.apple-whole').hide();
-    $('.apple-bite').show();
-  }, 700);
-  setTimeout( () => {
-    $('.apple-bite').hide();
-    $('.apple-whole').show();
-  }, 1000);
-  setTimeout( () => {
-    $('.apple-whole').hide();
-    $('.apple-bite').show();
-  }, 1200);
-  setTimeout( () => {
-    $('.apple-bite').hide();
-    $('.apple-whole').show();
-  }, 1500);
-  // setTimeout( () => {
-  //   $('.apple-whole').hide();
-  //   $('.apple-bite').show();
-  // }, 1700);
-  // setTimeout( () => {
-  //   $('.apple-bite').hide();
-  //   $('.apple-whole').show();
-  // }, 2000);
-  // setTimeout( () => {
-  //   $('.apple-whole').hide();
-  //   $('.apple-bite').show();
-  // }, 2200);
-  // setTimeout( () => {
-  //   $('.apple-bite').hide();
-  //   $('.apple-whole').show();
-  // }, 2500);
+  }
 }
