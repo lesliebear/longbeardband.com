@@ -2,6 +2,10 @@ body {
   background-image: url('../images/grain.jpg');
 }
 
+#body-content, #footer-nav{
+  visibility: hidden;
+}
+
 #body-content {
   display: block;
   height: inherit;

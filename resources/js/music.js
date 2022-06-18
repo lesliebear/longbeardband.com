@@ -1,5 +1,10 @@
 $(document).ready(function() {
 	setTimeout(function(){
+		visibilityFadeIn($('#body-content'));
+		visibilityFadeIn($('#footer-nav'));
+	}, 500);
+	
+	setTimeout(function(){
 		setFrames();
 
 		$(window).resize(function(){

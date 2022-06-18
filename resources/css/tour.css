@@ -2,6 +2,10 @@ body {
   background-image: url('../images/grain.jpg');
 }
 
+#body-content, #footer-nav{
+  visibility: hidden;
+}
+
 /*_______________TOUR_____________________________________________*/
 
 #tour-container {

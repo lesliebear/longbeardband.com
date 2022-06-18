@@ -1,4 +1,8 @@
 $(document).ready(function() {
+  setTimeout(function(){
+    visibilityFadeIn($('#body-content'));
+    visibilityFadeIn($('#footer-nav'));
+  }, 500);
 
   //____POPULATE TOUR SECTION_______
   var xhr = new XMLHttpRequest();

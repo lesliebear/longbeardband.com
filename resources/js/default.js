@@ -3,7 +3,6 @@ $(document).ready(() => {
   setResponsive();
 
   $(window).on('resize', () => {
-    console.log('resize');
     setResponsive();
   });
 });
@@ -38,4 +37,8 @@ const toggleApple = () => {
     $('.apple-bite').hide();
     $('.apple-whole').show();
   }
+}
+
+function visibilityFadeIn(target){
+	target.css({opacity: 0.0, visibility: 'visible'}).animate({opacity: 1.0});
 }
