@@ -7,7 +7,7 @@ $(document).ready(function() {
   //____POPULATE TOUR SECTION_______
   var xhr = new XMLHttpRequest();
   // xhr.open("GET", "https://rest.bandsintown.com/artists/japanesebreakfast/events?app_id=japanesebreakfastofficialsite", true);
-  xhr.open("GET", "https://rest.bandsintown.com/artists/longbeard/events?app_id=1", true);
+  xhr.open("GET", "https://rest.bandsintown.com/artists/longbeard/events?app_id=91c40500561766fd2c4cc635c9d411d9", true);
   xhr.onload = function (e) {
     if (xhr.readyState === 4) {
       if (xhr.status === 200) {
