@@ -4,50 +4,47 @@ $(document).ready(function() {
     visibilityFadeIn($('#footer-nav'));
   }, 500);
 
+
   //____POPULATE TOUR SECTION_______
-  var xhr = new XMLHttpRequest();
-  // xhr.open("GET", "https://rest.bandsintown.com/artists/japanesebreakfast/events?app_id=japanesebreakfastofficialsite", true);
-  xhr.open("GET", "https://rest.bandsintown.com/artists/longbeard/events?app_id=91c40500561766fd2c4cc635c9d411d9", true);
-  xhr.onload = function (e) {
-    if (xhr.readyState === 4) {
-      if (xhr.status === 200) {
-      	var response = JSON.parse(xhr.responseText);
-        if (response.length > 0) {
-          for(i=0; i<response.length; i++){
-      			var event = create_event_row(response[i]);
-      			$('#tour-container').append(event);
-      		}
-        } else {
-          $('#tour-container').append(noShows());
-        }
+  getTourData().then(setTourData);
 
-        $(window).on('resize', function() {
-          const body_space = $(window).height() - $('#header-nav').outerHeight() - $('#footer-nav').outerHeight();
-          if ($(window).height() > $('#header-nav').outerHeight() + $('#body-content').height() + $('#footer-nav').outerHeight()) {
-            $('#body-content').height(body_space);
-            $('body').height( $(window).height() );
-          }else{
-            $('body').height('auto');
-            $('#body-content').height('auto');
-          }
-          // $('#tour-container').height($('#body-content').height());
-        });
-
-        $(window).trigger('resize');
-      } else {
-        console.error(xhr.statusText);
-      }
+  $(window).on('resize', function() {
+    const body_space = $(window).height() - $('#header-nav').outerHeight() - $('#footer-nav').outerHeight();
+    if ($(window).height() > $('#header-nav').outerHeight() + $('#body-content').height() + $('#footer-nav').outerHeight()) {
+      $('#body-content').height(body_space);
+      $('body').height( $(window).height() );
+    }else{
+      $('body').height('auto');
+      $('#body-content').height('auto');
     }
-  };
-  xhr.onerror = function (e) {
-    console.error(xhr.statusText);
-  };
-  xhr.send(null);
-  $('#tour-container').find('.row').last().find('.evt').css('border-bottom', 'none');
+  });
 
 });
 
-function create_event_row( event ){
+function setTourData(events){
+  if (events.length > 0) {
+    events.forEach((event)=>{
+      let curr_event = createEventRow(event);
+      $('#tour-container').append(curr_event);
+    });
+  } else {
+    $('#tour-container').append(noShows());
+  }
+
+  // $('#tour-container').find('.row').last().find('.evt').css('border-bottom', 'none');
+  $(window).trigger('resize');
+}
+
+async function getTourData() {
+  const res = await fetch(
+    'https://rest.bandsintown.com/artists/longbeard/events?app_id=91c40500561766fd2c4cc635c9d411d9',
+    { method: 'GET' }
+  );
+  const events = res.json();
+  return events;
+}
+
+function createEventRow( event ){
 	var parsed_datetime = event.datetime.split('-');
 	var year = parsed_datetime[0];
 	var month_num = parsed_datetime[1];
